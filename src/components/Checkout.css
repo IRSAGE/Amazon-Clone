@@ -15,3 +15,9 @@
     padding: 10px;
     border-bottom: 1px solid lightgray;
   }
+  @media (max-width:768px){
+    .checkout{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+    }
+  }

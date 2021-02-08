@@ -67,3 +67,8 @@
     margin-left: 6px;
     margin-right: 6px;
 }
+@media (max-width:768px){
+    .header__returns{
+        display: none;
+    }
+}
