@@ -35,7 +35,7 @@ function Payment() {
 
     getClientSecret();
   }, [basket]);
-  console.log("secret is " , clientSecret)
+  console.log("secret is ", clientSecret);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,7 +54,11 @@ function Payment() {
         setProcessing(false);
         setError(null);
 
-        history.replace('/orders')
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
+
+        history.replace("/orders");
       });
   };
   const handleChange = (event) => {
