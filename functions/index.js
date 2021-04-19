@@ -1,9 +1,10 @@
-const functions = require("firebase-functions");
+//const functions = require("firebase-functions");
 
 const express = require("express");
 
 const cors = require("cors");
 const { response } = require("express");
+let port = process.env.PORT || 5001
 
 const stripe = require("stripe")(
   "sk_test_51IKPYcFLO2mX4C6ZsCVj97O7wvunEhzWaLaukbl4An0R8znOz33YtqIkbeHohQtDBHRD9FpsnVuFTHx7G4NMWL7B00qs7nqfPg"
@@ -43,7 +44,12 @@ app.post("/payments/create", async (request, response) => {
   });
 });
 
+app.listen(port, () => {
+  console.log(`App listening on port http://localhost:${port}`);
+
+})
+
 //Listen Command
-exports.api = functions.https.onRequest(app);
+//exports.api = functions.https.onRequest(app);
 
 //http://localhost:5001/clone-7a7a2/us-central1/api

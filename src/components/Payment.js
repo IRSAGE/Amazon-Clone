@@ -38,6 +38,7 @@ function Payment() {
   }, [basket]);
   console.log("secret is ", clientSecret);
   console.log("user ", user);
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
