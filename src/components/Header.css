@@ -75,4 +75,7 @@ a{
     .header__returns{
         display: none;
     }
+    .your__prime{
+        display: none;
+    }
 }

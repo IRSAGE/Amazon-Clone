@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./components/Payment";
@@ -43,6 +44,9 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+           <SignUp />
           </Route>
           <Route path="/orders">
             <Header />

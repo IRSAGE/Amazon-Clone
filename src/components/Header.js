@@ -14,7 +14,7 @@ function Header() {
       auth.signOut();
     }
   };
-
+   console.log(`user`, user)
   return (
     <div className="header">
       <Link to="/">
@@ -34,7 +34,8 @@ function Header() {
         <Link to={!user && "/login"}>
           <div onClick={handleAuthentication} className="header__option">
             <span className="header__optionLineOne">
-              Hello {!user ? "Guest" : user.email}
+              Hello{" "}
+              {!user ? "Guest" : !user.displayName ? "Guest" : user.displayName}
             </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
@@ -49,7 +50,7 @@ function Header() {
           </div>
         </Link>
 
-        <div className="header__option">
+        <div className="header__option your__prime">
           <span className="header__optionLineOne">Your</span>
           <span className="header__optionLineTwo">Prime</span>
         </div>

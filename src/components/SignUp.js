@@ -3,24 +3,24 @@ import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 
-function Login() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const history = useHistory();
 
-  const signIn = (e) => {
-    e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        history.push("/");
-      })
-      .catch((error) => alert(error.message));
-  };
 
   const register = () => {
     // e.preventDefault();
-        history.push("/signup");
+    auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((user) => {
+           if (auth) { 
+          history.push("/");
+        }
+      })
+        .catch((error) => alert(error.message));
+      
   };
 
   return (
@@ -43,21 +43,19 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            
+            <h5>Display Name</h5>
+            <input
+              type="text"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+            />
+
             <h5>Password</h5>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-
-            <button
-              onClick={signIn}
-              type="submit"
-              className="login__signInButton"
-            >
-              Sign In
-            </button>
           </form>
           <p>
             By signing-in you agree to the Amazon Clone Conditions of Use &
@@ -74,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
